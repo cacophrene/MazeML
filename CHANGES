@@ -1,0 +1,78 @@
+CHANGES - MazeML
+------------------------------
+
+
+MazeML 1.9
+--------------------
+Quelques optimisations sans réel impact dans la plage de valeurs acceptées par
+MazeML (mais sensible pour de gros labyrinthes). Ajout d'une documentation PDF
+(avec le document source LaTeX).
+
+
+MazeML 1.8
+--------------------
+MazeML peut dessiner et exporter de gros labyrinthes (tests effectués avec des 
+tailles égales à 500x500 et 600x600 cases) sans lancer son interface graphique,
+grâce à l'option --without-gui. Attention : les fonctions de tracés ne sont pas
+performantes. Il ne faut pas abuser de cette option.
+
+
+MazeML 1.7
+--------------------
+MazeML est désormais capable de créer des labyrinthes de façon interactive, 
+c'est-à-dire en traçant une à une les étapes de leur création. Ce comportement 
+n'est accessible qu'en ligne de commande (option -interactive). La durée de 
+chaque étape, exprimée en millisecondes, est également modifiable en ligne de
+commande (option -speed). 
+
+Remarque : La création interactive n'est possible que sur de nouveaux 
+labyrinthes. Les labyrinthes sauvegardés ne possèdent plus les informations de
+backtracking nécessaires au détail des étapes de création.
+
+
+MazeML 1.6
+--------------------
+Meilleur affichage du chemin solution (trait continu, nouvelle implémentation de
+la fonctionnalité ajoutée en 1.3 et supprimée en 1.4 en raison de problèmes
+d'affichage).
+
+
+MazeML 1.5
+--------------------
+Export des labyrinthes sous forme d'images PNG (avec transparence) ou JPEG. 
+Ajout d'un nouveau bouton sur l'interface. Ajout de quelques commentaires. 
+Version finale en préparation.
+
+
+MazeML 1.4
+--------------------
+Abandon des modifications apportées à la version 1.3 (bug d'affichage). Nouvelle
+implémentation avec le module Bigarray.Array1 au lieu des chaînes de caractères.
+Il est ainsi possible de créer des labyrinthes de cent millions de cases (10000
+lignes et 10000 colonnes).
+
+
+MazeML 1.3
+--------------------
+Meilleur affichage du chemin solution. Les traits blancs qui correspondent aux
+portes ouvertes ne sont plus visibles. Le tracé de la solution est continu.
+
+
+MazeML 1.2
+--------------------
+Simplification de la mise en mémoire de la solution. Les données de backtracking
+sont laissées telles quelles dans les cellules du couloir qui relie la case de
+départ à la case d'arrivée, et non inversées comme précédemment. Le chemin est
+donc sauvegardé du point d'arrivée vers le point de départ, mais la fonction
+get_solution (module Maze) inverse l'ordre des cases avec l'opérateur cons (::).
+
+
+MazeML 1.1
+--------------------
+Optimisation de la fonction next_directions (module Maze) après profilage du
+code (ocamlopt -p suivi de gprof).
+
+
+MazeML 1.0
+--------------------
+Première version publique.

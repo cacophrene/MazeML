@@ -1,0 +1,35 @@
+INSTALL - MazeML
+------------------------------
+
+1. Installez les compilateurs OCaml et la bibliothèque LablGTK :
+
+    * Objective Caml 3.11 ou supérieur.
+      Voir http://caml.inria.fr/ocaml/release.en.html
+
+    * LablGTK 2.10 ou supérieur.
+      Voir http://wwwfun.kurims.kyoto-u.ac.jp/soft/lsl/lablgtk.html
+
+------------------------------
+Remarque (merci à bluestorm pour me l'avoir signalé)
+
+Il est aussi possible d'utiliser Objective Caml 3.10, moyennant une modification
+mineure du code source. Dans le fichier src/maze.ml, les deux lignes suivantes :
+
+let uget t n = Array1.unsafe_get t.buff n
+let uset t n x = Array1.unsafe_set t.buff n x
+
+doivent être remplacées par :
+
+let uget t n = Array1.get t.buff n
+let uset t n x = Array1.set t.buff n x
+
+Les fonctions unsafe n'ont pas d'impact majeur sur les performances de MazeML
+(sauf peut-être pour les benchmark avec le module Maze pris séparément). Comme
+elles ont été introduites par OCaml 3.11, on peut les remplacer par leur
+équivalent safe pour compiler avec OCaml 3.10.
+------------------------------
+
+2. Vous pouvez maintenant compiler l'application. Lancez un terminal dans le
+   répertoire src/ puis tapez "ocamlbuild mazeML.native". Si vous souhaitez 
+   lancer l'application dès la fin de la compilation, vous pouvez remplacer la
+   commande précédente par "ocamlbuild mazeML.native --".

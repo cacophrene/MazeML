@@ -1,0 +1,12 @@
+README - MazeML
+------------------------------
+
+MazeML est un générateur de labyrinthes parfaits rédigés en OCaml.
+
+Caractéristiques du programme :
+
+  * Crée des labyrinthes parfaits de 4x4 à 240x390 cases.
+  * Affiche sur demande la solution des labyrinthes.
+  * Charge / sauvegarde les labyrinthes (fichiers texte).
+  * Export des labyrinthes aux formats PNG, JPEG ou BMP
+  * Paramétrable en ligne de commande.
